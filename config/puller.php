@@ -9,6 +9,10 @@ return [
      * Sleep time in seconds each loop to check for new messages
      */
     'sleep'=>0.1,
+    /**
+     * Maximum execution time for puller request in seconds
+     */
+    'time_limit'=>3600,
     'connections' => [
         'database' => [
             'driver' => 'database',

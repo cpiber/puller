@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class PullerController
 {
     function messages(Request $request, PullerManager $pullerManager, Repository $config){
-        set_time_limit(3600);
+        $limit=$config->get('puller.time_limit',3600);
+        set_time_limit($limit+1);
+        $start = microtime(true);
         $channel=$request->input('channel');
         $token=$request->input('token');
         $isPrivate=strpos($channel, 'private-')===0;
@@ -43,12 +45,11 @@ class PullerController
                         sleep(1);
                     }
                 }
-
-
-            }while(1);
+            }while((microtime(true)-$start)<$limit);
             return response()->json(['messages' => $messages,'token'=>$token]);
         }catch (InvalidTokenException $exception){
             return response()->json(['error'=>$exception->getMessage()],401);
         }
     }
 }
+
