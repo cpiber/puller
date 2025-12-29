@@ -13,6 +13,10 @@ return [
      * Maximum execution time for puller request in seconds
      */
     'time_limit'=>3600,
+    /**
+     * Time in seconds between keepalive signals
+     */
+    'keepalive_time'=>10,
     'connections' => [
         'database' => [
             'driver' => 'database',
