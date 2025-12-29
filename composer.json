@@ -1,17 +1,21 @@
 {
-    "name": "as247/puller",
+    "name": "cpiber/puller",
     "description": "A laravel package for broadcasting events using long-polling",
     "keywords": ["laravel", "puller", "broadcasting", "long-polling"],
     "license": "MIT",
-    "homepage": "https://github.com/as247/puller",
+    "homepage": "https://github.com/cpiber/puller",
     "support": {
-        "issues": "https://github.com/as247/puller/issues",
-        "source": "https://github.com/as247/puller"
+        "issues": "https://github.com/cpiber/puller/issues",
+        "source": "https://github.com/cpiber/puller"
     },
     "authors": [
         {
             "name": "As247",
             "email": "as247@wpstarter.dev"
+        },
+        {
+            "name": "C. Piber",
+            "email": "cp.piber@gmail.com"
         }
     ],
     "autoload": {
@@ -25,6 +29,9 @@
                 "As247\\Puller\\PullerServiceProvider"
             ]
         }
+    },
+    "replace": {
+        "as247/puller": "1.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
