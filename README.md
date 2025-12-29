@@ -26,3 +26,18 @@ window.Echo = new Echo({
 });
 ```
 
+## Troubleshooting
+
+- If Laravel does not pick up the `puller` driver, add it to your `bootstrap/providers.php`:
+  
+  ```php
+  <?php
+  
+  return [
+      App\Providers\AppServiceProvider::class,
+      // ... your other service providers ...
+      As247\Puller\PullerServiceProvider::class,
+  ];
+  ```
+
+- To publish the puller configuration as well as database migrations, run this command: `php artisan vendor:publish --provider "As247\Puller\PullerServiceProvider"`
