@@ -66,7 +66,6 @@ class PullerController
                 echo $data;
                 flush();
             }, 200, ['Content-Type' => 'application/json', 'X-Accel-Buffering' => 'no']);
-            return response()->json(['messages' => $messages,'token'=>$token]);
         }catch (InvalidTokenException $exception){
             return response()->json(['error'=>$exception->getMessage()],401);
         }
